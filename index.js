@@ -1,10 +1,15 @@
 const express = require("express");
-
 const app = express();
+const port = 3000;
 
-
-app.get("/", (req, res) => {
-  res.status(200).send("Hello World");
+app.get('/', (req, res) => {
+  res.send("Hello World");
 });
 
-module.exports = app;
+app.get('/karen', (req, res) => {
+  res.send("Hello Karen");
+});
+
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}/`);
+});
