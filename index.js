@@ -1,15 +1,11 @@
-const express = require("express");
-const app = express();
-const port = 3000;
+const express = require('express')
+const app = express()
+const port = 3000
 
-app.get('/', (req, res) => {
-  res.send("Hello World");
-});
-
-app.get('/karen', (req, res) => {
-  res.send("Hello Karen");
-});
+//import route posts
+const postsRouter = require('./routers/posts');
+app.use('/api/posts', postsRouter); // use route posts di Express
 
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}/`);
-});
+  console.log(`app running at http://localhost:${port}`)
+})
